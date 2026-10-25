@@ -6,14 +6,14 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 23:58:23 by user              #+#    #+#             */
-/*   Updated: 2026/10/20 20:22:10 by user             ###   ########.fr       */
+/*   Updated: 2026/10/25 13:55:40 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "ft_printf.h"
 
-int ft_printf(int c)
+int ft_putchar(int c)
 {
     return (write(1, &c, 1));
    

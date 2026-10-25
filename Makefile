@@ -6,13 +6,14 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/17 21:49:47 by user              #+#    #+#              #
-#    Updated: 2026/10/20 20:22:10 by user             ###   ########.fr        #
+#    Updated: 2026/10/25 13:55:40 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
 #complilador 
+NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
