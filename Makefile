@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: delroudi <delroudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/17 21:49:47 by user              #+#    #+#              #
-#    Updated: 2026/10/25 13:55:40 by user             ###   ########.fr        #
+#    Updated: 2026/10/27 17:31:03 by delroudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,10 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = ft_printf.c \
 	ft_print_putchar.c \
 	ft_print_putstr.c \
-	ft_putnbr.c \
+	ft_print_ptr.c \
+	ft_print_putnbr.c \
 	ft_print_unsigned.c \
-	ft_print_hex.c \
-	ft_print_ptr.c
+	ft_print_hex.c
 
 OBJ = $(SRC:.c=.o)
 
