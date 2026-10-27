@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned                                  :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/24 23:08:30 by user              #+#    #+#             */
-/*   Updated: 2026/10/25 13:55:40 by user             ###   ########.fr       */
+/*   Created: 2026/10/25 21:26:59 by user              #+#    #+#             */
+/*   Updated: 2026/10/25 21:39:08 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_print_unsigned(unsigned int num)
-{
-char digit[255];
-int i=0;
-int n;
-if(num==0)
-    ft_putchar('0');
-while(num)
-{
+#include "ft_printf.h"
 
-    digit[i]=num%10;
-    num/=10;
-}    
-while(i)
+int	ft_print_pointer(unsigned long long ptr)
 {
-    n+=ft_putchar(digit[i]);
-    i--;
-}
-return (n);
+	(void)ptr;
+	return (0);
 }

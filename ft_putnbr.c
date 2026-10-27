@@ -6,33 +6,57 @@
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 12:56:03 by user              #+#    #+#             */
-/*   Updated: 2026/10/25 13:55:40 by user             ###   ########.fr       */
+/*   Updated: 2026/10/27 13:18:39 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n)
+static int	print_digits(char *digits, unsigned int length)
+{
+	int	count;
+
+	count = 0;
+	while (length > 0)
+	{
+		length--;
+		count += ft_print_putchar(digits[length]);
+	}
+	return (count);
+}
+
+static int	print_sign(long *num)
+{
+	if (*num < 0)
+	{
+		*num *= -1;
+		return (ft_print_putchar('-'));
+	}
+	return (0);
+}
+
+int	ft_print_putnbr(int n)
 {
 	unsigned int	i;
+	char			digits[11];
+	int				count;
+	long			num;
 
 	i = 0;
-	if (n == -2147483648)
+	num = n;
+	if (num == 0)
+		return (ft_print_putchar('0'));
+	if (num == -2147483648)
 	{
 		write(1, "-2147483648", 11);
 		return (11);
 	}
-	if (n < 0)
+	count = print_sign(&num);
+	while (num > 0)
 	{
-		i += ft_putchar('-');
-		n *= -1;
+		digits[i] = num % 10 + '0';
+		num /= 10;
+		i++;
 	}
-	if (n > 9)
-	{
-		i += ft_putnbr(n / 10);
-		i += ft_putchar(n % 10 + '0');
-	}
-	else
-		i += ft_putchar(n + '0');
-	return (i);
+	return (count + print_digits(digits, i));
 }

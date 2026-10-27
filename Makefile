@@ -18,10 +18,14 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 
-SRC = ft_printf.c 
-    
-      
-#that one to add all the .o inisdie SRC
+SRC = ft_printf.c \
+	ft_print_putchar.c \
+	ft_print_putstr.c \
+	ft_putnbr.c \
+	ft_print_unsigned.c \
+	ft_print_hex.c \
+	ft_print_ptr.c
+
 OBJ = $(SRC:.c=.o)
 
 
