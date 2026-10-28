@@ -1,12 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   ft_printf.c                                       :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/10/26 16:33:26 by username         #+#    #+#              */
-/*   Updated: 2026/10/27 17:48:19 by username        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: delroudi                                             */
+/*   <delroudi@student.42malaga.com>                           */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/28 13:00:00 by delroudi          #+#    #+#             */
+/*   Updated: 2026/10/28 13:00:00 by delroudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +34,21 @@ static int	converter(char format, va_list *arg)
 	return (1);
 }
 
+static int	handle_percent(const char *format, int *i, va_list *arg)
+{
+	int	result;
+
+	if (format[*i + 1] == '\0')
+	{
+		result = ft_print_putchar(format[*i]);
+		(*i)++;
+		return (result);
+	}
+	result = converter(format[*i + 1], arg);
+	*i += 2;
+	return (result);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	int		i;
@@ -40,19 +56,14 @@ int	ft_printf(const char *format, ...)
 	va_list	arg;
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
 	va_start(arg, format);
 	i = 0;
 	result = 0;
-	while (format && format[i])
+	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] != '\0')
-		{
-			result += converter(format[i + 1], &arg);
-			i += 2;
-		}
+		if (format[i] == '%')
+			result += handle_percent(format, &i, &arg);
 		else
 		{
 			result += ft_print_putchar(format[i]);

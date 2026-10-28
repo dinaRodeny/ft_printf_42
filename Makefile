@@ -5,7 +5,7 @@
 #                                                     +:+ +:+         +:+      #
 #    By: delroudi <delroudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/10/17 21:49:47 by user              #+#    #+#              #
+#    Created: 2026/10/17 21:49:47 by delroudi              #+#    #+#              #
 #    Updated: 2026/10/27 17:31:03 by delroudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
@@ -47,6 +47,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 
+
 # Clean object files
 clean:
 	$(RM) $(OBJ)
@@ -59,4 +60,4 @@ fclean: clean
 re: fclean all
 
  # Phony targets (They are not real files)
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re 
